@@ -34,24 +34,19 @@ export class HttpService {
 
     /**
      * post请求
+     * @param path  服务接口路径
      * @param params  参数
-     * @param jwt   是否token校验
-     * @param modulename    模块
-     * @param operation     接口
-     * @param flag          标记
-     * @param verson       版本,默认1.0.0
-     * @param service      服务,默认services
+     * @param headers  请求头
      */
-    public post(params: any, jwt: boolean, modulename: string, operation: string,
-        flag: string, verson = '1.0.0', service = 'services') {
-        const url = service + '/' + verson + '/' + modulename + '/' + operation;
-        const body = {
-            data: params,
-            tag: flag,
-        };
+    public post(path: string, params: any, headers: any) {
+        // const url = service + '/' + verson + '/' + modulename + '/' + operation;
+        // const body = {
+        //     data: params,
+        //     tag: flag,
+        // };
         return new Promise((resolve, reject) => {
-            return this.axios.post(url, body, {
-                headers: { isJwt: jwt },
+            return this.axios.post(path, params, {
+                headers: headers,
             }).then((res: any) => {
                 resolve(res)
             }).catch((err: { message: any; }) => {

@@ -36,8 +36,12 @@ export default class app extends Vue {
   private mounted() {
     let path = "http://localhost:8080/api/v1/gateway_manager/test";
     let params = { a: 1, b: 2 };
-    console.log(this.$http.get(path, params));
     this.$http.get(path, params).then((res: any) => {
+      console.log(res);
+    });
+    let path2 = "http://localhost:8080/api/v1/gateway_manager/testPost";
+    let params2 = { name:"xiaoyu" };
+    this.$http.post(path2, params2).then((res: any) => {
       console.log(res);
     });
   }

@@ -6,7 +6,7 @@ export class Interceptors {
 
     constructor() {
         // 创建axios实例
-        this.instance = axios.create({ timeout: 1000 * 12 });
+        this.instance = axios;
         // 初始化拦截器
         this.initInterceptors();
     }
