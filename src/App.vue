@@ -21,7 +21,7 @@ export default class app extends Vue {
   $http: any;
   list: any;
   a: any;
-  
+  // data
   @Provide() b: any = true;
   private data() {
     return {
@@ -38,13 +38,15 @@ export default class app extends Vue {
       ],
     };
   }
-  private test(a: any) {
+  // methods
+  private test(a: string) {
     console.log(a);
   }
   // 生命周期
   private mounted() {
-    let a: any = "hhhhhhhhhh";
+    let a = "hhhhhhhhhh";
     this.test(a);
+    console.log(this.b);
     console.log(this.a);
     console.log(this.list);
     let path = "http://localhost:8080/api/v1/gateway_manager/test";
